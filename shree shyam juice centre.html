@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shree Shyam Juice Centre</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to bottom right, #f8ffe5, #fcd5ce);
+      overflow-x: hidden;
+    }
+
+    header {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 1rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    header h1 {
+      color: #e76f51;
+      font-size: 2rem;
+      animation: slideIn 1s ease-in-out;
+    }
+
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #444;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #e76f51;
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateX(-100px);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    .hero {
+      height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      padding: 0 3rem;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .hero-text {
+      max-width: 500px;
+    }
+
+    .hero-text h2 {
+      font-size: 3rem;
+      color: #333;
+      margin-bottom: 1rem;
+    }
+
+    .hero-text p {
+      font-size: 1.2rem;
+      color: #555;
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      padding: 0.8rem 2rem;
+      background: #e76f51;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background: #d65b3f;
+    }
+
+    .hero img {
+      width: 400px;
+      animation: float 3s infinite ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+
+    .section {
+      padding: 4rem 3rem;
+      text-align: center;
+    }
+
+    .section h3 {
+      font-size: 2rem;
+      color: #333;
+      margin-bottom: 2rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 20px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+    }
+
+    .card h4 {
+      font-size: 1.2rem;
+      color: #e76f51;
+    }
+
+    footer {
+      background: #333;
+      color: white;
+      padding: 2rem 3rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Shree Shyam Juice Centre</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#menu">Menu</a>
+      <a href="#order">Order</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="hero-text">
+      <h2>100% Fresh and Organic Juices</h2>
+      <p>Order your favorite healthy drink now. Delivered fresh to your door!</p>
+      <button class="btn" onclick="orderNow()">Order Now</button>
+    </div>
+    <img src="https://i.ibb.co/9hs1ktB/juice.png" alt="Juice" />
+  </section>
+
+  <section class="section" id="menu">
+    <h3>Our Juices</h3>
+    <div class="cards">
+      <div class="card">
+        <img src="https://i.ibb.co/FHkq0Hq/orange-juice.jpg" alt="Orange Juice" />
+        <h4>Orange Blast</h4>
+        <p>₹60 - Pure vitamin C in every drop</p>
+      </div>
+      <div class="card">
+        <img src="https://i.ibb.co/Jm6YgFv/mango.jpg" alt="Mango Juice" />
+        <h4>Mango Magic</h4>
+        <p>₹70 - Summer vibes in a glass</p>
+      </div>
+      <div class="card">
+        <img src="https://i.ibb.co/K65S3zp/mixed.jpg" alt="Mixed Fruit" />
+        <h4>Mixed Fruit</h4>
+        <p>₹80 - A colorful healthy punch</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="order">
+    <h3>Place Your Order</h3>
+    <form onsubmit="submitOrder(event)" style="max-width: 500px; margin: auto;">
+      <input type="text" placeholder="Your Name" required style="width: 100%; padding: 10px; margin: 10px 0;">
+      <input type="text" placeholder="Address" required style="width: 100%; padding: 10px; margin: 10px 0;">
+      <input type="tel" placeholder="Phone Number" required style="width: 100%; padding: 10px; margin: 10px 0;">
+      <select required style="width: 100%; padding: 10px; margin: 10px 0;">
+        <option value="">Select Juice</option>
+        <option>Orange Blast</option>
+        <option>Mango Magic</option>
+        <option>Mixed Fruit</option>
+      </select>
+      <button type="submit" class="btn">Submit Order</button>
+    </form>
+  </section>
+
+  <section class="section" id="contact">
+    <h3>Contact Us</h3>
+    <p>Email: shreeshyamjuice@gmail.com</p>
+    <p>Phone: +91 9876543210</p>
+    <p>Address: Near City Park, Delhi - 110001</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Shree Shyam Juice Centre. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function orderNow() {
+      document.getElementById('order').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function submitOrder(e) {
+      e.preventDefault();
+      alert("Thank you! Your juice order has been placed. We'll contact you soon!");
+    }
+  </script>
+</body>
+</html>
